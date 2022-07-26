@@ -2,5 +2,9 @@
 	{
 		"ParameterKey": "Prefix",
 		"ParameterValue": "Udacity"
+	},
+	{
+		"ParameterKey": "RootInstanceProfile",
+		"ParameterValue": "arn:aws:iam::866571745534:instance-profile/instancerole"
 	}
 ]

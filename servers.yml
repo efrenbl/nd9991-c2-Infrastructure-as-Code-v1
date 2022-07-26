@@ -1,6 +1,10 @@
 Description:
+  Efrén Bautista Application
 Parameters:
   Prefix:
+    Type: String
+
+  RootInstanceProfile:
     Type: String
 
 Resources:
@@ -31,8 +35,8 @@ Resources:
           !Sub "${Prefix}-vpc"
       SecurityGroupIngress:
       - IpProtocol: tcp
-        FromPort: 8080
-        ToPort: 8080
+        FromPort: 80
+        ToPort: 80
         CidrIp: 0.0.0.0/0
       - IpProtocol: tcp
         FromPort: 22
@@ -54,7 +58,7 @@ Resources:
           sudo apt-get install apache2 -y
           sudo systemctl start apache2.service          
       ImageId: ami-0747bdcabd34c712a
-      KeyName: testkuntica
+      IamInstanceProfile: !Ref RootInstanceProfile
       SecurityGroups:
       - Ref: WebServerSecGroup
       InstanceType: t3.medium
